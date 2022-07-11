@@ -10,7 +10,7 @@ const app: express.Application = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000", optionsSuccessStatus: 200 }));
 
 app.use("/login", login);
 app.use("/register", register);

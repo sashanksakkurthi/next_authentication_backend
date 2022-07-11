@@ -7,6 +7,7 @@ const router: express.IRouter = express.Router();
 
 router.post("/", async (req: express.Request, res: express.Response) => {
   const salt = await bcrypt.genSalt(10);
+  console.log(req.body.username);
   const passwordHash = await bcrypt.hash(req.body.password, salt);
   const user = await prisma.user.upsert({
     where: {
